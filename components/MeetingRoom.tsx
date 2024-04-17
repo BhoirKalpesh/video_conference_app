@@ -10,11 +10,11 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
   } from "@/components/ui/dropdown-menu"
+
 import { LayoutList, Loader, Users } from 'lucide-react';
 import { Button } from './ui/button';
 import { useSearchParams } from 'next/navigation';
 import EndCallButton from './EndCallButton';
-  
 
 type CallLayoutType = 'grid' | 'speaker-left' | 'speaker-right'
 
@@ -27,8 +27,7 @@ const MeetingRoom = () => {
     const { useCallCallingState } = useCallStateHooks();
     const callingState = useCallCallingState();
 
-    if(CallingState !== callingState.JOINED) return
-    <Loader/>
+    if(callingState !== CallingState.JOINED) return <Loader/>
 
     const CallLayout = () => {
         switch (layout) {
@@ -42,6 +41,7 @@ const MeetingRoom = () => {
                 participantsBarPosition='right'/>
         }
     }
+    
   return (
     <section className='relative h-screen w-full overflow-hidden pt-4'>
         <div className="relative flex size-full items-center justify-center">
@@ -54,11 +54,8 @@ const MeetingRoom = () => {
         </div>
         <div className="fixed bottom-0 flex w-full items-center justify-center gap-5 flex-wrap">
             <CallControls/>
-
             <DropdownMenu>
-
                 <div className="flex items-center">
-
                     <DropdownMenuTrigger
                     className='cursor-pointer rounded-2xl bg-[#19232d] px-4 py-2 hover:bg-[#4c535b]'>
                         <LayoutList size={20} className='text-white'/>
@@ -89,8 +86,6 @@ const MeetingRoom = () => {
             </Button>
             {!isPersonalRoom && <EndCallButton/>}
             
-
-
         </div>
     </section>
   )
