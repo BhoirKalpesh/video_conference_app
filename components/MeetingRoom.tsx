@@ -18,8 +18,6 @@ import EndCallButton from './EndCallButton';
 
 type CallLayoutType = 'grid' | 'speaker-left' | 'speaker-right'
 
-
-
 const MeetingRoom = () => {
     const searchParams = useSearchParams();
     const isPersonalRoom = !!searchParams.get('personal')  //true => !true
