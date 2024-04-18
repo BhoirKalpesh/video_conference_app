@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState } from 'react';
 import HomeCard from './HomeCard';
@@ -47,7 +47,7 @@ const MeetingTypeList = () => {
           data: {
             starts_at: startAt,
             custom: {
-              description
+              description,
             }
           }
         });
@@ -58,7 +58,7 @@ const MeetingTypeList = () => {
           router.push(`/meeting/${call.id}`);
         }
 
-        toast({title: "Meeting Created"})
+        toast({title: "Meeting Created"});
     } catch (error){
       console.log(error);
       toast({
