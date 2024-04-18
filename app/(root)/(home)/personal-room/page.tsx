@@ -15,7 +15,7 @@ const Table = ({ title, description}: {title: string; description: string;}) => 
   </div>
 )
 
-const personalRoom = () => {
+const PersonalRoom = () => {
   const { user } =useUser();
   const meetingId = user?.id ;
   const { toast } = useToast();
@@ -74,4 +74,4 @@ const personalRoom = () => {
   )
 }
 
-export default personalRoom
+export default PersonalRoom
