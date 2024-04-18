@@ -1,7 +1,21 @@
+'use client'
 import MeetingTypeList from '@/components/MeetingTypeList';
+import { useEffect, useState } from 'react';
 
 const Home = () => {
+
   const now = new Date();
+  const [currentTime,setCurrentTime]=useState(now);
+
+  useEffect(()=> {
+    const updateClock=() => {
+      setCurrentTime(now);
+    };
+
+    const intervalId = setInterval(updateClock,1000)
+    
+    return () => clearInterval(intervalId)
+  },[now]);
 
   const time = now.toLocaleTimeString('en-US',{hour:'2-digit', minute: '2-digit'});
   const date = (new Intl.DateTimeFormat('en-US', {
